@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
+
+:root {
+  --bg-primary: #3579f5;
+  --bg-secondary: #2364db;
+
+  --text-primary: #ffffff;
+  --text-secondary: #4777ed;
+
+  --color-secondary: #f4f8ff;
+
+  --font-size-s: 12px;
+
+  --border-radius-xl: 40px;
+  --border-radius: 10px;
+  --border-radius-s: 6px;
+
+  --circumference: calc(pi * 2 * 29);
+  --percent-0: 1.8;
+  --percent-1-of-7: calc(100 / 7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  font-family: Inter;
+  background-color: #5e5e5e;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.checklist {
+  display: flex;
+  width: 743px;
+  padding: 12px 18px;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius);
+}
+
+.checklist__progressbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.progressbar {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+svg circle {
+  width: 49px;
+  height: 49px;
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+}
+
+.progressbar__circle {
+  stroke-opacity: 0.5;
+  stroke-width: 1px;
+}
+
+.progressbar__sector {
+  stroke-width: 2px;
+  stroke-dashoffset: calc(var(--circumference) / 4);
+}
+
+.progressbar__sector_0-percent {
+  stroke-dasharray: calc(var(--circumference) * var(--percent-0) / 100)
+    calc(var(--circumference) - (var(--circumference) * var(--percent-0) / 100));
+}
+
+.progressbar .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.progressbar .number span {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+}
+
+.checklist__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  min-width: 300px;
+  margin: 0 16px;
+}
+
+.content__title {
+  width: 76px;
+  padding: 0 10px;
+  color: var(--text-primary);
+  border-radius: var(--border-radius-xl);
+  background-color: var(--bg-secondary);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+}
+
+.content__done {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+}
+
+.content__next {
+  color: var(--text-primary);
+  font-size: var(--font-size-s);;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+}
+
+.checklist__button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 170px;
+  padding: 10px 0;
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.75px;
+  transition: all 0.3s ease-in-out;
+}
+
+.checklist__button:hover {
+  border: 1px solid var(--bg-secondary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: var(--bg-secondary);
+}
